@@ -119,8 +119,9 @@ class Forecast(object):
 
         # Get the furthest date in the future we can get a forecast for
         max_forecast_date = dt.now().date() + timedelta(days=MAX_FORECAST_LEN)
+        time = timedelta(days=forecast_length)
         furthest_date_requested = dt.combine(date_start,
-                                             timedelta(days=forecast_length))
+                                             time)
 
         # Check to see that the forecast dates requested are not too far into
         # the future

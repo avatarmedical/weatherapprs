@@ -31,6 +31,8 @@ from forecast import Forecast, validate_params
 app = Flask(__name__)
 log = app.logger
 
+print('start app')
+
 
 @app.route('/', methods=['POST'])
 def webhook():
@@ -38,6 +40,7 @@ def webhook():
 
     This is meant to be used in conjunction with the weather Dialogflow agent
     """
+    print('in webhook')
     req = request.get_json(silent=True, force=True)
     try:
         action = req.get('queryResult').get('action')
